@@ -1,1 +1,6 @@
-访问 /admin 创建短链。已使用 KV 绑定名 LINKS。
+
+升级版：
+- 自定义失效日期 YYYY-MM-DD
+- 留空永久有效
+- KV绑定名 LINKS
+- 后台：admin.html

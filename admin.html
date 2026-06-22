@@ -1,19 +1,43 @@
 
-<!doctype html><html><head><meta charset="utf-8"><title>Admin</title></head>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>短链后台</title>
+</head>
 <body>
 <h2>短链后台</h2>
-<p>短码：<input id="code"></p>
-<p>目标网址：<input id="url" size="60"></p>
-<p>有效天数：<input id="days" value="7"></p>
-<button onclick="create()">创建</button>
+
+<p>短码</p>
+<input id="code">
+
+<p>目标网址</p>
+<input id="url" size="60">
+
+<p>失效日期(YYYY-MM-DD，留空永久有效)</p>
+<input id="expireDate" type="date">
+
+<br><br>
+
+<button onclick="createLink()">创建短链</button>
+
 <pre id="out"></pre>
+
 <script>
-async function create(){
- const r=await fetch('/api/create',{method:'POST',headers:{'content-type':'application/json'},
- body:JSON.stringify({
-  code:code.value,url:url.value,days:Number(days.value)
- })});
- out.textContent=await r.text();
+async function createLink() {
+  const r = await fetch('/api/create', {
+    method:'POST',
+    headers:{'content-type':'application/json'},
+    body:JSON.stringify({
+      code:document.getElementById('code').value,
+      url:document.getElementById('url').value,
+      expireDate:document.getElementById('expireDate').value
+    })
+  });
+
+  document.getElementById('out').textContent =
+    await r.text();
 }
 </script>
-</body></html>
+</body>
+</html>

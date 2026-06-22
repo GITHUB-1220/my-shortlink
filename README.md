@@ -1,5 +1,1 @@
-# Cloudflare Pages Short Link
-
-访问 /test 将跳转到 example.com
-
-后续可升级为 KV 数据库和管理后台。
+访问 /admin 创建短链。已使用 KV 绑定名 LINKS。
